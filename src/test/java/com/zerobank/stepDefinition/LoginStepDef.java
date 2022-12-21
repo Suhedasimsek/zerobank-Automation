@@ -23,10 +23,11 @@ public class LoginStepDef {
         loginPage.userName_loc.sendKeys(username);
         loginPage.password_loc.sendKeys(password);
         loginPage.loginButton_loc.click();
+        Driver.get().get("http://zero.webappsecurity.com/bank/account-summary.html");
     }
     @And("User should navigate to {string}")
-    public void userShouldNavigateTo(String str) {
-        Driver.get().get("http://zero.webappsecurity.com/bank/account-summary.html");
+    public void userShouldNavigateTo(String account) {
+        loginPage.navigateToAccount(account);
     }
 
     @Then("{string} page should be displayed")

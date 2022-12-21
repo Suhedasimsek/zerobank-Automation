@@ -11,5 +11,5 @@ public class AccountSummaryPage extends BasePage{
     public List<WebElement> accountTypes_loc;
 
     @FindBy(xpath = "(//table)[3]//th")
-    public List<WebElement> tableHeads_loc;
+    public List<WebElement> creditAccountColumn_loc;
 }

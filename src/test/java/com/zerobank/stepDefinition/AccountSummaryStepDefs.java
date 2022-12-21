@@ -26,7 +26,7 @@ public class AccountSummaryStepDefs {
 
     @Then("Credit Accounts table should have following columns")
     public void credit_accounts_table_should_have_following_columns(List<String> expectedColumns) {
-        List<String> actualColumns = BrowserUtils.getElementsText(accountSummaryPage.tableHeads_loc);
+        List<String> actualColumns = BrowserUtils.getElementsText(accountSummaryPage.creditAccountColumn_loc);
 
         Assert.assertEquals(expectedColumns, actualColumns);
     }

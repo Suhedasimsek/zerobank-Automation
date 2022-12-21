@@ -3,7 +3,7 @@ Feature: Login
   Scenario: User should be able to login with valid credentials
     Given User should be on the login page
     When User should input username "username" and password "password"
-    And User should navigate to "http://zero.webappsecurity.com/bank/account-summary.html"
+    And User should navigate to "Account Summary"
     Then "Account Summary" page should be displayed
 
 

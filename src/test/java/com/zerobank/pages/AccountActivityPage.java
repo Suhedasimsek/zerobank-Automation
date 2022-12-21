@@ -11,22 +11,17 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class AccountActivityPage {
+public class AccountActivityPage extends BasePage{
 
 
 
     @FindBy(css = "#aa_accountId")
     public WebElement dropDownElement_loc;
 
-    @FindBy(xpath = "(//tr)[1]")    //   "//table//tr//th"
+    @FindBy(xpath = "//table//tr//th")
     public List<WebElement> rowHeader_loc;
 
-    public void navigateToAccount(String account) {
 
-        Driver.get().findElement(By.linkText(account)).click();
-        //Driver.get().findElement(By.xpath("//a[.='"+account+"']")).click();
-
-    }
     public List<String> getSelectMenu(){
 
         BrowserUtils.waitFor(3);
