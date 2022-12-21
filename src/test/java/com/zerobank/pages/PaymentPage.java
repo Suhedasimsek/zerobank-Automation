@@ -6,7 +6,25 @@ import org.openqa.selenium.support.FindBy;
 public class PaymentPage extends BasePage{
 
     @FindBy(id = "sp_payee")
-    public WebElement addPayment_loc;
+    public WebElement payee_loc;
+
+    @FindBy(css = "#sp_account")
+    public WebElement accountInput_loc;
+
+    @FindBy(css = "#sp_amount")
+    public WebElement amountInput_loc;
+
+    @FindBy(id = "sp_date")
+    public WebElement dateInput;
+
+    @FindBy(id = "sp_description")
+    public WebElement descriptionInput;
+
+    @FindBy(id = "pay_saved_payees")
+    public WebElement payBtn;
+
+    @FindBy(id = "alert_content")
+    public WebElement messageText;
 
     @FindBy(linkText = "Add New Payee")
     public WebElement addNewPaye_loc;
