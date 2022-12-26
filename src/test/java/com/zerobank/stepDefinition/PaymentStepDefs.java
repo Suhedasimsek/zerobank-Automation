@@ -2,10 +2,14 @@ package com.zerobank.stepDefinition;
 
 import com.zerobank.pages.PaymentPage;
 import com.zerobank.utilities.BrowserUtils;
+import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 
@@ -78,8 +82,30 @@ public class PaymentStepDefs {
 
     @Then("message {string} should be displayed")
     public void messageShouldBeDisplayed(String expectedMessage) {
-        String actualMessage = paymentPage.alertMessage_loc.getText();
-        Assert.assertEquals(expectedMessage, actualMessage);
+       //String actualMessage = paymentPage.alertMessage_loc.getText();
+       //Assert.assertEquals(expectedMessage, actualMessage);
+
+        //System.out.println(Driver.get().getPageSource());// alertContent.html("") içinde de yazılı
+
+        if (expectedMessage.contains("success")) {
+            Assert.assertTrue("Allert Box is not displayed", paymentPage.messageText.isDisplayed());
+            String actualMessage = paymentPage.messageText.getText();
+            System.out.println("actualMessage = " + actualMessage);
+            Assert.assertEquals("message do not match", expectedMessage, actualMessage);
+
+        } else {
+            if (paymentPage.amountInput_loc.getAttribute("value").isEmpty()) {
+                String actualMessage = paymentPage.amountInput_loc.getAttribute("validationMessage");
+                System.out.println("actualMessage = " + actualMessage);
+                Assert.assertEquals("alert do not match", expectedMessage, actualMessage);
+            } else {
+                String actualMessage = paymentPage.dateInput.getAttribute("validationMessage");
+                System.out.println("actualMessage = " + actualMessage);
+                Assert.assertEquals("alert do not match", expectedMessage, actualMessage);
+            }
+
+        }
+
     }
 
 }

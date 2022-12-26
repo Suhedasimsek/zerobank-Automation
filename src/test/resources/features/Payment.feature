@@ -14,7 +14,7 @@ Feature: Add new payee under pay bills
 
 
 
-  @wip
+
   Scenario Outline: User should not be able to complete pay operation with invalid credentials
     And User should not complete pay operation by using invalid "<Amount>", "<Date>","<Description>"
     Then "The payment was successfully submitted." message should not be displayed on page
@@ -25,7 +25,7 @@ Feature: Add new payee under pay bills
       | ??3000    |          | Good Payment |
 
 
-
+  @wip
     Scenario:
     Given Add New Payee tab
   And creates new payee using following information
